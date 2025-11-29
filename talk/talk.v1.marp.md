@@ -4,17 +4,6 @@ html: true
 theme: default
 paginate: true
 title: Apache Iceberg изнутри
-style: |
-  .mermaid-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-  }
-  .mermaid-container svg {
-    max-height: 400px;
-    width: auto;
-  }
 ---
 
 <!--
