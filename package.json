@@ -1,0 +1,23 @@
+{
+  "name": "iceberg-talk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "render": "for f in talk/diagrams/*.mmd; do npx mmdc -p puppeteer-config.json -i \"$f\" -o \"${f%.mmd}.svg\" -b transparent; done",
+    "watch:diagrams": "onchange \"talk/diagrams/*.mmd\" -- sh -c 'npx mmdc -p puppeteer-config.json -i \"$1\" -o \"${1%.mmd}.svg\" -b transparent' -- {{file}}",
+    "preview": "marp --html -p talk/talk.v1.marp.md",
+    "dev": "concurrently \"npm run watch:diagrams\" \"npm run preview\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.3",
+    "@mermaid-js/mermaid-cli": "^11.12.0",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11",
+    "onchange": "^7.1.0"
+  }
+}

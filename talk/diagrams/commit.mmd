@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant W as Workers
+    participant D as Driver
+    participant S3 as Object Storage
+    participant C as Catalog
+
+    W->>S3: 1. Write Data Files (Parquet)
+    W-->>D: File Paths & Metrics
+    D->>S3: 2. Write Manifest File
+    D->>S3: 3. Write Metadata File (v2)
+    D->>C: 4. CAS(v1 -> v2)
+    Note over C: Atomic Swap!

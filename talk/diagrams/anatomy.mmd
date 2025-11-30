@@ -1,0 +1,10 @@
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '14px'}}}%%
+graph TD
+    C["🗄️ Catalog (DB)"] --> M["📋 metadata.json"]
+    M --> ML["📦 snap-*.avro"]
+    ML --> MF1["📦 manifest-1.avro"]
+    ML --> MF2["📦 manifest-2.avro"]
+    MF1 --> D1["🗃️ data-001.parquet"]
+    MF1 --> D2["🗃️ data-002.parquet"]
+    MF2 --> D3["🗃️ data-003.parquet"]
+    MF2 --> D4["🗃️ data-004.parquet"]

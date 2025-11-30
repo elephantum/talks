@@ -1,0 +1,7 @@
+flowchart LR
+    Start((Start)) --> Read[Read Base v1]
+    Read --> Write[Write Data]
+    Write --> Check{v1 == Current?}
+    Check -- Yes --> Commit[Commit v2]
+    Check -- No --> Rebase[Rebase on v2]
+    Rebase --> Check
