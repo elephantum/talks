@@ -1,7 +1,7 @@
-DIAGRAMS := $(wildcard talk/diagrams/*.mmd)
+DIAGRAMS := $(wildcard diagrams/*.mmd)
 SVGS := $(DIAGRAMS:.mmd=.svg)
-MARP_MD := talk/talk.v1.marp.md
-MARP_HTML := talk/talk.v1.marp.html
+MARP_MD := talk.v1.marp.md
+MARP_HTML := talk.v1.marp.html
 
 .PHONY: all clean watch
 
@@ -20,5 +20,5 @@ $(MARP_HTML): $(MARP_MD)
 # 2. Run Marp preview server for live editing
 watch:
 	npx concurrently \
-		"npx onchange 'talk/diagrams/*.mmd' '$(MARP_MD)' -- make all" \
+		"npx onchange 'diagrams/*.mmd' '$(MARP_MD)' -- make all" \
 		"npx marp -p $(MARP_MD)"
