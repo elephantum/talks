@@ -635,7 +635,6 @@ Schema Evolution — это боль в Hive.
 - **ID-based tracking**: Колонки связаны по ID, а не по имени.
 - **Instant Operations**: Все изменения схемы — это только обновление метаданных (`metadata.json`).
 - **Schema History**: Метаданные хранят все версии схем. Разные файлы могут иметь разные схемы.
-- **Safe Type Promotion**: `int` &rarr; `long`, `float` &rarr; `double`.
 
 ```json
 // Internal Schema Representation

@@ -4,10 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "render": "for f in talk/diagrams/*.mmd; do npx mmdc -p puppeteer-config.json -i \"$f\" -o \"${f%.mmd}.svg\" -b transparent; done",
-    "watch:diagrams": "onchange \"talk/diagrams/*.mmd\" -- sh -c 'npx mmdc -p puppeteer-config.json -i \"$1\" -o \"${1%.mmd}.svg\" -b transparent' -- {{file}}",
-    "preview": "marp --html -p talk/talk.v1.marp.md",
-    "dev": "concurrently \"npm run watch:diagrams\" \"npm run preview\""
   },
   "keywords": [],
   "author": "",
