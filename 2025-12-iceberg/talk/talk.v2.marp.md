@@ -18,7 +18,7 @@ ACID:
 -->
 
 # Apache Iceberg изнутри
-## Глубокое погружение в архитектуру
+## Погружение в архитектуру
 
 Разберём, как устроен Iceberg под капотом: от метаданных до ACID-гарантий.
 
@@ -34,8 +34,9 @@ ACID:
 ## Андрей Татаринов
 
 - Люблю узнавать как устроен мир и рассказывать об этом
-- Founder Epoch8 - заказная ML-разработка
+- Founder [Epoch8](https://epoch8.co) - заказная ML-разработка
 - ex-Google, ex-Yandex
+- https://x.com/elephantum
 
 ---
 
@@ -829,9 +830,10 @@ Apache Iceberg превращает Data Lake в Data Warehouse.
 3. **Reliability**: ACID транзакции, Safe Schema Evolution.
 4. **Usability**: Hidden Partitioning, Time Travel.
 
-### 🔗 Полезные ссылки:
-- 📄 **Spec**: iceberg.apache.org/spec
-- 🐙 **Code**: github.com/apache/iceberg
+### 🔗 Ссылки:
+- **Spec**: [iceberg.apache.org/spec](https://iceberg.apache.org/spec)
+- **Code**: [github.com/apache/iceberg](https://github.com/apache/iceberg)
+- **Презентация**: [github.com/elephantum/talks/2025-12-iceberg](https://github.com/elephantum/talks/tree/master/2025-12-iceberg)
 
 ---
 
