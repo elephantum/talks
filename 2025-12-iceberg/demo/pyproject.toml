@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "ipykernel>=7.1.0",
     "marimo>=0.18.1",
-    "pyiceberg[datafusion,sql-sqlite]>=0.10.0",
+    "pandas>=2.3.3",
+    "pyiceberg[datafusion,sql-sqlite,pyiceberg-core]>=0.10.0",
 ]
