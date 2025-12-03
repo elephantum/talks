@@ -1,0 +1,23 @@
+graph TD
+    C["☁️ Catalog (DB)"] --> M["📋 metadata.json"]
+    
+    subgraph History
+        M -.-> ML1["📋 snap-v1.avro"]
+    end
+    
+    M --> ML2["📋 snap-v2.avro"]
+
+    %% Snapshot 1: Initial state
+    ML1 -.-> MF1["📋 manifest-old.avro"]
+
+    %% Snapshot 2: Added data-003
+    ML2 --> MF1
+    ML2 --> MF2["📋 manifest-new.avro"]
+
+    %% Data connections
+    MF1 --> D1["📦 data-001.parquet"]
+    MF1 --> D2["📦 data-002.parquet"]
+    
+    MF2 --> D3["📦 data-003.parquet"]
+    
+    style ML1 stroke-dasharray: 5 5

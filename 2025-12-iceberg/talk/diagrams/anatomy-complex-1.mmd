@@ -1,0 +1,11 @@
+graph TD
+    C["☁️ Catalog (DB)"] --> M["📋 metadata.json"]
+    
+    M --> ML1["📋 snap-v1.avro"]
+
+    %% Snapshot 1: Initial state
+    ML1 --> MF1["📋 manifest-old.avro"]
+
+    %% Data connections
+    MF1 --> D1["📦 data-001.parquet"]
+    MF1 --> D2["📦 data-002.parquet"]

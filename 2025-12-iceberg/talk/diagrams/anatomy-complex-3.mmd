@@ -1,0 +1,36 @@
+graph TD
+    C["☁️ Catalog (DB)"] --> M["📋 metadata.json"]
+    
+    subgraph History
+        M -.-> ML1["📋 snap-v1.avro"]
+        M -.-> ML2["📋 snap-v2.avro"]
+    end
+    
+    M --> ML3["📋 snap-v3.avro"]
+
+    %% Snapshot 1: Initial state
+    ML1 -.-> MF1["📋 manifest-old.avro"]
+
+    %% Snapshot 2: Added data-003
+    ML2 --> MF1
+    ML2 --> MF2["📋 manifest-new.avro"]
+
+    %% Snapshot 3: Rewrote data-001 -> data-001-v2
+    %% Reuses manifest-new (data-003 unchanged)
+    %% Replaces manifest-old with manifest-rewritten
+    ML3 --> MF2
+    ML3 --> MF3["📋 manifest-rewritten.avro"]
+
+    %% Data connections
+    MF1 --> D1["📦 data-001.parquet"]
+    MF1 --> D2["📦 data-002.parquet"]
+    
+    MF2 --> D3["📦 data-003.parquet"]
+    
+    MF3 --> D1V2["📦 data-001-v2.parquet"]
+    MF3 --> D2
+
+    style ML1 stroke-dasharray: 5 5
+    style ML2 stroke-dasharray: 5 5
+    style MF1 stroke-dasharray: 5 5
+    style D1 stroke-dasharray: 5 5
