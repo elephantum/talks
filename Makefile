@@ -1,7 +1,7 @@
 DIAGRAMS := $(wildcard diagrams/*.mmd)
 SVGS := $(DIAGRAMS:.mmd=.svg)
-MARP_MD := talk.v1.marp.md
-MARP_HTML := talk.v1.marp.html
+MARP_MD := $(wildcard *.marp.md)
+MARP_HTML := $(MARP_MD:.marp.md=.marp.html)
 
 .PHONY: all clean watch
 
@@ -12,7 +12,7 @@ all: $(SVGS) $(MARP_HTML)
 	npx mmdc -p puppeteer-config.json -i $< -o $@ -b transparent
 
 # Rule to convert .md to .html
-$(MARP_HTML): $(MARP_MD)
+%.marp.html: %.marp.md
 	npx marp --html $< -o $@
 
 # Watch mode:
@@ -20,5 +20,5 @@ $(MARP_HTML): $(MARP_MD)
 # 2. Run Marp preview server for live editing
 watch:
 	npx concurrently \
-		"npx onchange 'diagrams/*.mmd' '$(MARP_MD)' -- make all" \
-		"npx marp -p $(MARP_MD)"
+		"npx onchange 'diagrams/*.mmd' '*.marp.md' -- make all" \
+		"npx marp -p -w talk.v2.marp.md"
